@@ -1,8 +1,8 @@
-const express = require("express");
+const express= require("express");
 const app = express();
 require("dotenv").config();
 const stripe = require("stripe")(process.env.STRIP_SECRET_TEST)
-const bodyParser = require("body-parser");
+const bodyParser = require("body-parser")
 const cors = require("cors")
 
 
@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 
 app.use(cors())
-
 app.post("/payment", cors(), async (req,res)=>{
     let {amount,id} = req.body
     console.log("🚀 ~ file: index.js:16 ~ app.post ~ amount,id", amount,id)
@@ -37,6 +36,7 @@ app.post("/payment", cors(), async (req,res)=>{
     }
 })
 
-app.listen(process.env.PORT || 4000, ()=>{
-    console.log("Server is listeningon port 4000");
+app.listen(process.env.PORT || 3000, ()=>{
+    console.log("Server is listeningon port 3000");
 })
+
